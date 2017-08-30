@@ -1,6 +1,9 @@
 package com.kjmaster.soulskills;
 
 import com.kjmaster.soulskills.client.gui.survivaltab.SurvivalTabClick;
+import com.kjmaster.soulskills.events.PlayerJoinWorld;
+import com.kjmaster.soulskills.handlers.CapabilityHandler;
+import com.kjmaster.soulskills.proxy.CommonProxy;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -10,6 +13,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import scala.collection.parallel.ParIterableLike;
 
 import static com.kjmaster.soulskills.proxy.CommonProxy.proxy;
 
@@ -38,6 +42,9 @@ public class SoulSkills
         LOGGER.info("Starting Initialization");
         proxy.init(event);
         MinecraftForge.EVENT_BUS.register(new SurvivalTabClick());
+        MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
+        MinecraftForge.EVENT_BUS.register(new PlayerJoinWorld());
+        CommonProxy.registerCaps();
     }
 
     @Mod.EventHandler

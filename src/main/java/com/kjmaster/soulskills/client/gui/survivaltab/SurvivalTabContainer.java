@@ -5,6 +5,7 @@ import com.kjmaster.soulskills.client.gui.survivaltab.buttons.*;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.inventory.Container;
 import net.minecraft.util.ResourceLocation;
 
@@ -42,6 +43,12 @@ public class SurvivalTabContainer extends GuiContainer {
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
+        String s = I18n.format("soulskills.inventorytab.desc1"); //Gets the formatted name for the block breaker from the language file
+        String s2 = I18n.format("soulskills.inventorytab.desc2");
+        String s3 = I18n.format("soulskills.inventorytab.desc3");
+        this.mc.fontRenderer.drawString(s, this.xSize / 2 - this.mc.fontRenderer.getStringWidth(s) / 2, 6, 4210752); //Draws the string in the center on the top of the gui
+        this.mc.fontRenderer.drawString(s2, this.xSize / 2 - this.mc.fontRenderer.getStringWidth(s) / 2, 16, 4210752);
+        this.mc.fontRenderer.drawString(s3, this.xSize / 2 - this.mc.fontRenderer.getStringWidth(s) / 2, 26, 4210752);
         super.drawGuiContainerForegroundLayer(mouseX, mouseY);
     }
 
