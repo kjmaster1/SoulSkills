@@ -1,6 +1,7 @@
 package com.kjmaster.soulskills.handlers;
 
 import com.kjmaster.soulskills.SoulSkills;
+import com.kjmaster.soulskills.skills.SkillsProvider;
 import com.kjmaster.soulskills.souls.SoulsProvider;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,10 +14,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  */
 public class CapabilityHandler {
     public static final ResourceLocation SOULS_CAPABILITY = new ResourceLocation(SoulSkills.MODID, "Souls");
-
+    public static final ResourceLocation SKILLS_CAPABILITY = new ResourceLocation(SoulSkills.MODID, "Skills");
     @SubscribeEvent
     public void attachCapability(AttachCapabilitiesEvent<Entity> event) {
         if (!(event.getObject() instanceof EntityPlayer)) return;
         event.addCapability(SOULS_CAPABILITY, new SoulsProvider());
+        event.addCapability(SKILLS_CAPABILITY, new SkillsProvider());
     }
 }

@@ -1,13 +1,34 @@
 package com.kjmaster.soulskills.client.gui.survivaltab;
 
 import com.kjmaster.soulskills.SoulSkills;
+import com.kjmaster.soulskills.client.gui.blaze.BlazeGui;
+import com.kjmaster.soulskills.client.gui.boss.BossGui;
+import com.kjmaster.soulskills.client.gui.creeper.CreeperGui;
+import com.kjmaster.soulskills.client.gui.endermen.EndermenGui;
+import com.kjmaster.soulskills.client.gui.ghast.GhastGui;
+import com.kjmaster.soulskills.client.gui.guardian.GuardianGui;
+import com.kjmaster.soulskills.client.gui.illager.IllagerGui;
+import com.kjmaster.soulskills.client.gui.magmacube.MagmaCubeGui;
+import com.kjmaster.soulskills.client.gui.pigmen.PigmenGui;
+import com.kjmaster.soulskills.client.gui.polarbear.PolarBearGui;
+import com.kjmaster.soulskills.client.gui.shulker.ShulkerGui;
+import com.kjmaster.soulskills.client.gui.silverfish.SilverfishGui;
+import com.kjmaster.soulskills.client.gui.skeleton.SkeletonGui;
+import com.kjmaster.soulskills.client.gui.slime.SlimeGui;
+import com.kjmaster.soulskills.client.gui.spider.SpiderGui;
 import com.kjmaster.soulskills.client.gui.survivaltab.buttons.*;
+import com.kjmaster.soulskills.client.gui.witch.WitchGui;
+import com.kjmaster.soulskills.client.gui.witherskele.WitherSkeleGui;
+import com.kjmaster.soulskills.client.gui.zombie.ZombieGui;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.util.ResourceLocation;
+import scala.collection.parallel.ParIterableLike;
 
 import java.io.IOException;
 
@@ -123,13 +144,41 @@ public class SurvivalTabContainer extends GuiContainer {
 
     @Override
     protected void actionPerformed(GuiButton button) throws IOException {
-        if(button == endermenSkillButton)
-            SoulSkills.LOGGER.info("Testing");
-        if(button == ghastSkillButton)
-            SoulSkills.LOGGER.info("Testing2");
-        if(button == spiderSkillButton)
-            SoulSkills.LOGGER.info("Testing3");
+        if(button == blazeSkillButton)
+            Minecraft.getMinecraft().displayGuiScreen(new BlazeGui(new TabContainer()));
+        if(button == bossSkillButton)
+            Minecraft.getMinecraft().displayGuiScreen(new BossGui(new TabContainer()));
         if(button == creeperSkillButton)
-            SoulSkills.LOGGER.info("Testing4");
+            Minecraft.getMinecraft().displayGuiScreen(new CreeperGui(new TabContainer()));
+        if(button == endermenSkillButton)
+            Minecraft.getMinecraft().displayGuiScreen(new EndermenGui(new TabContainer()));
+        if(button == ghastSkillButton)
+            Minecraft.getMinecraft().displayGuiScreen(new GhastGui(new TabContainer()));
+        if(button == guardianSkillButton)
+            Minecraft.getMinecraft().displayGuiScreen(new GuardianGui(new TabContainer()));
+        if(button == illagerSkillButton)
+            Minecraft.getMinecraft().displayGuiScreen(new IllagerGui(new TabContainer()));
+        if(button == magmaCubeSkillButton)
+            Minecraft.getMinecraft().displayGuiScreen(new MagmaCubeGui(new TabContainer()));
+        if(button == pigmenSkillButton)
+            Minecraft.getMinecraft().displayGuiScreen(new PigmenGui(new TabContainer()));
+        if(button == polarBearSkillButton)
+            Minecraft.getMinecraft().displayGuiScreen(new PolarBearGui(new TabContainer()));
+        if(button == shulkerSkillButton)
+            Minecraft.getMinecraft().displayGuiScreen(new ShulkerGui(new TabContainer()));
+        if(button == silverfishSkillButton)
+            Minecraft.getMinecraft().displayGuiScreen(new SilverfishGui(new TabContainer()));
+        if(button == skeletonSkillButton)
+            Minecraft.getMinecraft().displayGuiScreen(new SkeletonGui(new TabContainer()));
+        if(button == slimeSkillButton)
+            Minecraft.getMinecraft().displayGuiScreen(new SlimeGui(new TabContainer()));
+        if(button == spiderSkillButton)
+            Minecraft.getMinecraft().displayGuiScreen(new SpiderGui(new TabContainer()));
+        if(button == witchSkillButton)
+            Minecraft.getMinecraft().displayGuiScreen(new WitchGui(new TabContainer()));
+        if(button == witherSkeleSkillButton)
+            Minecraft.getMinecraft().displayGuiScreen(new WitherSkeleGui(new TabContainer()));
+        if(button == zombieSkillButton)
+            Minecraft.getMinecraft().displayGuiScreen(new ZombieGui(new TabContainer()));
     }
 }
